@@ -17,7 +17,7 @@ module Rubycritic
 
     def initialize(paths)
       @modules = SourceLocator.new(paths).pathnames.map do |pathname|
-        AnalysedModule.new(pathname: pathname)
+        AnalysedModule.new(pathname: pathname, base: paths)
       end
     end
 

@@ -7,12 +7,14 @@ module Rubycritic
 
     attribute :name
     attribute :pathname
+    attribute :base
     attribute :smells, Array, default: []
     attribute :churn
     attribute :committed_at
     attribute :complexity
     attribute :duplication, Integer, default: 0
     attribute :methods_count
+    attribute :security_issues, Array, default: []
 
     def path
       @path ||= pathname.to_s
