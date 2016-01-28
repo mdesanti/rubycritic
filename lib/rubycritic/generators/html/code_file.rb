@@ -25,12 +25,16 @@ module Rubycritic
           file_code = ''
           File.readlines(@pathname).each.with_index(LINE_NUMBER_OFFSET) do |line_text, line_number|
             location = Location.new(@pathname, line_number)
-            line_smells = @analysed_module.smells_at_location(location)
+            line_smells = smells_at(location)
             file_code << Line.new(file_directory, line_text, line_smells).render
           end
 
           file_body = TEMPLATE.result(get_binding { file_code })
           LAYOUT_TEMPLATE.result(get_binding { file_body })
+        end
+
+        def smells_at(location)
+          @analysed_module.smells_at_location(location)
         end
       end
     end

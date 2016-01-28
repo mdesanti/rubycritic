@@ -2,8 +2,10 @@ require 'fileutils'
 require 'rubycritic/configuration'
 require 'rubycritic/generators/html/overview'
 require 'rubycritic/generators/html/smells_index'
+require 'rubycritic/generators/html/security_index'
 require 'rubycritic/generators/html/code_index'
 require 'rubycritic/generators/html/code_file'
+require 'rubycritic/generators/html/security_code_file'
 
 module Rubycritic
   module Generator
@@ -37,7 +39,7 @@ module Rubycritic
       end
 
       def generators
-        [overview_generator, code_index_generator, smells_index_generator] + file_generators
+        [overview_generator, code_index_generator, smells_index_generator, security_index_generator] + file_generators
       end
 
       def overview_generator
@@ -52,9 +54,14 @@ module Rubycritic
         Html::SmellsIndex.new(@analysed_modules)
       end
 
+      def security_index_generator
+        Html::SecurityIndex.new(@analysed_modules)
+      end
+
       def file_generators
         @analysed_modules.map do |analysed_module|
           Html::CodeFile.new(analysed_module)
+          Html::SecurityCodeFile.new(analysed_module)
         end
       end
 

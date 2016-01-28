@@ -44,6 +44,10 @@ module Rubycritic
       smells.select { |smell| smell.at_location?(location) }
     end
 
+    def security_issues_at_location(location)
+      security_issues.select { |si| si.at_location?(location) }
+    end
+
     def <=>(other)
       [rating.to_s, name] <=> [other.rating.to_s, other.name]
     end

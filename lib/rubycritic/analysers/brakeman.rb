@@ -20,7 +20,7 @@ module Rubycritic
           warnings = json[path]
           next if warnings.nil?
           warnings.each do |warning|
-            analysed_module.smells << create_smell(analysed_module, warning)
+            analysed_module.security_issues << create_smell(analysed_module, warning)
           end
         end
       end
