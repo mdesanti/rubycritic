@@ -8,7 +8,10 @@ module Rubycritic
       end
 
       def generate_report
-        print generator.render
+        report =  generator.render
+        File.open(Config.root + '/report.json', 'w+') do |file|
+          file.write(report)
+        end
       end
 
       private
