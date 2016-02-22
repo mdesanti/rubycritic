@@ -43,6 +43,8 @@ module Rubycritic
         end
       end.compact
 
+      path_list.select! { |path| !path.to_s.include? 'vendor' }
+
       deduplicate_symlinks(path_list) if Config.deduplicate_symlinks
 
       path_list.map(&:cleanpath)
