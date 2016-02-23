@@ -18,7 +18,7 @@ module Rubycritic
         end
 
         def render
-          template.result(binding)
+          template.result(binding).delete("\n") + "\n"
         end
 
         private
