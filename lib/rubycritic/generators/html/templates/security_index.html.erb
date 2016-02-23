@@ -14,7 +14,7 @@
       <td><%= smell.type %></td>
       <td>
         <% smell.locations.each do |location| %>
-          <a href="<%= smell_location_path(location) %>"><%= @analysed_module_names[location.pathname] %></a>
+          <a href="<%= security_smell_location_path(location) %>"><%= @analysed_module_names[location.pathname] %></a>
         <% end %>
       </td>
       <% if @show_status %>

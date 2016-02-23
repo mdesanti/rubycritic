@@ -60,9 +60,8 @@ module Rubycritic
 
       def file_generators
         @analysed_modules.map do |analysed_module|
-          Html::CodeFile.new(analysed_module)
-          Html::SecurityCodeFile.new(analysed_module)
-        end
+          [Html::CodeFile.new(analysed_module), Html::SecurityCodeFile.new(analysed_module)]
+        end.flatten
       end
 
       def copy_assets_to_report_directory

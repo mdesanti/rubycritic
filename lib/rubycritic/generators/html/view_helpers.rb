@@ -24,6 +24,10 @@ module Rubycritic
       file_path("#{location.pathname.sub_ext('.html')}#L#{location.line}")
     end
 
+    def security_smell_location_path(location)
+      file_path("#{location.pathname.sub_ext('_security.html')}#L#{location.line}")
+    end
+
     private
 
     def relative_path(file)
