@@ -1,4 +1,4 @@
-#encoding: utf-8 
+#encoding: utf-8
 require 'cgi'
 require 'rubycritic/generators/html/base'
 
@@ -18,7 +18,7 @@ module Rubycritic
         end
 
         def render
-          template.result(binding).delete("\n") + "\n"
+          template.result(binding)
         end
 
         private
