@@ -14,7 +14,7 @@ module Rubycritic
 
       def execute
         parsed_options = @options.parse
-
+        
         reporter = Rubycritic::CommandFactory.create(parsed_options.to_h).execute
         print(reporter.status_message)
         reporter.status

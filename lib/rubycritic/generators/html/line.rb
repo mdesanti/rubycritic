@@ -13,12 +13,12 @@ module Rubycritic
 
         def initialize(file_directory, text, smells)
           @file_directory = file_directory
-          @text = CGI.escapeHTML(text.chomp)
+          @text = CGI.escapeHTML(text.chomp.force_encoding("iso-8859-1"))
           @smells = smells
         end
 
         def render
-          template.result(binding).delete("\n") + "\n"
+          template.result(binding).force_encoding("iso-8859-1").delete("\n") + "\n"
         end
 
         private

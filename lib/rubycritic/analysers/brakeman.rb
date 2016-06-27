@@ -32,7 +32,8 @@ module Rubycritic
           message: warning['message'],
           score: 0,
           type: warning['warning_type'],
-          cost: 0
+          cost: 0,
+          analyser: 'brakeman'
         )
       end
 
