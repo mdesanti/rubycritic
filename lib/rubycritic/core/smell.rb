@@ -14,8 +14,9 @@ module Rubycritic
     attribute :type
     attribute :analyser
 
-    FLAY_DOCS_URL = 'http://docs.seattlerb.org/flay/'.freeze
-    FLOG_DOCS_URL = 'http://docs.seattlerb.org/flog/'.freeze
+    FLAY_DOCS_URL     = 'http://docs.seattlerb.org/flay/'.freeze
+    FLOG_DOCS_URL     = 'http://docs.seattlerb.org/flog/'.freeze
+    BRAKEMAN_DOCS_URL = 'http://docs.seattlerb.org/brakeman/'.freeze
 
     def at_location?(other_location)
       locations.any? { |location| location == other_location }
@@ -58,6 +59,8 @@ module Rubycritic
         FLAY_DOCS_URL
       when 'flog'
         FLOG_DOCS_URL
+      when 'brakeman'
+        BRAKEMAN_DOCS_URL
       else
         raise "No documentation URL set for analyser '#{analyser}' smells"
       end
